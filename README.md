@@ -1,166 +1,99 @@
-<<<<<<< HEAD
-# cinespark3.0
-Full-stack MERN web application containerized with Docker and automatically deployed to AWS EC2 using GitHub Actions CI/CD.
-=======
 # CineSpark 3.0
 
-CineSpark 3.0 is a gamified technical competition where teams solve technical questions, earn and spend CineCoins, decode binary clues into words, and eventually construct a final sentence that becomes their filmmaking challenge.
+CineSpark 3.0 is a full-stack technical competition platform with a React frontend, Express API, OAuth-style team/admin authentication, event timing, question sets, leaderboard logic, and Docker support.
 
-CineSpark 3.0 is a working technical competition platform. Teams register, wait for an admin launch, solve a ten-question technical story set, spend CineCoins, decode binary clues, and assemble a meaningful ten-word sentence.
+## Project structure
 
-## Project Architecture
-
-```
-cinespark-3.0/
-├── client/          # React + Vite frontend
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── layouts/
-│       ├── services/
-│       ├── hooks/
-│       └── utils/
-├── server/          # Node.js + Express API
-│   └── src/
-│       ├── config/
-│       ├── controllers/
-│       ├── middleware/
-│       ├── models/
-│       ├── routes/
-│       ├── services/
-│       └── utils/
+```text
+cinespark3.0/
+├── client/                # React + Vite frontend
+├── server/                # Express + MongoDB backend
+├── .github/               # Optional deployment workflow
+├── .gitignore
+├── .env.example           # Root environment template
+├── docker-compose.yml     # Local Docker setup
+├── package.json           # Root workspace scripts
 ├── README.md
-└── .gitignore
+├── start.bat              # Windows launcher for local dev
+├── CineSpark_Project_Brief.html
+├── CineSpark_Project_Brief_Advanced.html
+└── CineSpark_Project_Brief_Advanced.pdf
 ```
-
-- **client** — UI and routing. Talks to the API through an Axios instance.
-- **server** — REST API, database connection, and shared middleware. Controllers, models, and routes are separated so later features can be added without restructuring.
 
 ## Technologies
 
-| Layer | Stack |
-| --- | --- |
-| Frontend | React, Vite, JavaScript, Tailwind CSS, React Router, Axios |
-| Backend | Node.js, Express.js |
-| Database | MongoDB, Mongoose |
-| Tooling | npm, dotenv, Git |
+- Frontend: React, Vite, JavaScript
+- Backend: Node.js, Express.js
+- Database: MongoDB + Mongoose
+- Deployment: Docker + GitHub Actions
 
-## Install Dependencies
+## Quick start
 
-From the project root:
+### 1) Install dependencies
 
 ```bash
-cd client
-npm install
-
-cd ../server
-npm install
+npm install --prefix client
+npm install --prefix server
 ```
 
-## Configure Environment Variables
+### 2) Set environment files
 
-### Backend
-
-Copy the example file and edit values as needed:
+Copy the example files and update values as needed:
 
 ```bash
-cd server
 cp .env.example .env
+cp client/.env.example client/.env
+cp server/.env.example server/.env
 ```
 
-`server/.env.example`:
+Example values:
 
-```
-PORT=5000
-MONGODB_URI=
+```env
+# root .env
+MONGODB_URI=mongodb://127.0.0.1:27017/cinespark
 CLIENT_URL=http://localhost:5173
-```
-
-Leave `MONGODB_URI` empty during local setup if you do not have MongoDB yet. When ready, set a valid URI such as `mongodb://127.0.0.1:27017/cinespark` or a MongoDB Atlas `mongodb+srv://...` string. The server starts even if MongoDB is unavailable; connection errors are logged clearly.
-
-**MongoDB Atlas tip:** In Atlas, click **Connect → Drivers**, copy the connection string, replace `<password>` with your database user password, and paste it as the value of `MONGODB_URI` in `server/.env` (one line, no quotes). If your password contains special characters like `@`, `#`, or `:`, URL-encode them first.
-
-### Frontend
-
-```bash
-cd client
-cp .env.example .env
-```
-
-`client/.env.example`:
-
-```
 VITE_API_URL=http://localhost:5000/api
 ```
 
-Never commit `.env` files. Never put MongoDB credentials or other backend secrets in the React app.
+### 3) Run locally
 
-## Start the Frontend
+Frontend:
 
 ```bash
 cd client
 npm run dev
 ```
 
-The app is available at [http://localhost:5173](http://localhost:5173).
-
-## Start the Backend
+Backend:
 
 ```bash
 cd server
 npm run dev
 ```
 
-Or without nodemon:
+Or use the Windows launcher:
+
+```bat
+start.bat
+```
+
+The app will typically run at:
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5000
+
+## Production / Docker
 
 ```bash
-cd server
-npm start
+docker compose up --build
 ```
 
-The API listens on port `5000` by default.
+## Notes
 
-## Test `/api/health`
+- Keep `start.bat` in the repo; it is useful for local startup.
+- Do not commit real `.env` files.
+- Remove generated files such as `node_modules`, build output, and local `.env` files before pushing to GitHub.
 
-With the backend running:
+## Deployment
 
-```bash
-curl http://localhost:5000/api/health
-```
-
-Expected response:
-
-```json
-{
-  "success": true,
-  "message": "CineSpark 3.0 API is running"
-}
-```
-
-The landing page also calls this endpoint and shows the connection status.
-
-## Current Features
-
-Included:
-
-- Team registration and login
-- Admin authentication and event controls
-- Waiting room with rules and a protected 60-minute launch
-- Twenty seeded story sets with 200 technical questions
-- Automatic per-team set assignment and overflow set generation
-- CineCoin rewards, penalties, hints, skips, and transaction history
-- Binary clue decoding and ten-word story completion
-- Fullscreen test mode and server-enforced anti-cheat disqualification
-- Admin question-set editor, team search, leaderboard, and team reinstatement
-
-## Seed the Question Library
-
-The seed script replaces the current question library with 20 complete sets (200 questions):
-
-```bash
-cd server
-node src/utils/seedQuestions.js
-```
-
-Run it only when you intend to reset the question library.
->>>>>>> 99460dd (Initial commit)
+This repo includes a GitHub Actions workflow for deploying to AWS EC2. You can reuse or replace it after creating a fresh GitHub repository.
