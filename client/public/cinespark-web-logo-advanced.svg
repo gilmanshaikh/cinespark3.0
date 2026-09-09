@@ -1,0 +1,60 @@
+<svg width="1700" height="520" viewBox="0 0 1700 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1700" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#05070D"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A8FFF4"/>
+      <stop offset="0.35" stop-color="#63F0E0"/>
+      <stop offset="0.7" stop-color="#3DD6C6"/>
+      <stop offset="1" stop-color="#7FB9FF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E1A2D"/>
+      <stop offset="1" stop-color="#0A1019"/>
+    </linearGradient>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#44DCD0" flood-opacity="0.28"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="30" flood-color="#44DCD0" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1700" height="520" fill="url(#bg)"/>
+
+  <g opacity="0.25">
+    <circle cx="190" cy="110" r="170" fill="#132334"/>
+    <circle cx="1530" cy="390" r="180" fill="#0E1A2D"/>
+  </g>
+
+  <g transform="translate(82 82)">
+    <rect x="0" y="0" width="290" height="290" rx="56" fill="url(#panel)" stroke="rgba(61,214,198,0.5)" stroke-width="2.2"/>
+    <rect x="34" y="34" width="222" height="222" rx="46" fill="rgba(5,7,13,0.56)" stroke="rgba(125,243,232,0.25)"/>
+
+    <g filter="url(#glow)">
+      <circle cx="145" cy="145" r="80" stroke="url(#accent)" stroke-width="9"/>
+      <circle cx="145" cy="145" r="108" stroke="url(#accent)" stroke-width="2" opacity="0.32"/>
+      <path d="M120 97L188 145L120 193V97Z" fill="url(#accent)"/>
+    </g>
+
+    <path d="M68 89H100" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M190 89H222" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M98 204H192" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M145 48V72" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M145 218V242" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+
+    <rect x="90" y="228" width="110" height="22" rx="11" fill="rgba(125,243,232,0.12)" stroke="rgba(125,243,232,0.42)"/>
+    <circle cx="105" cy="239" r="5" fill="#8FFAE7"/>
+  </g>
+
+  <g transform="translate(420 116)">
+    <text x="0" y="120" font-size="108" font-weight="900" letter-spacing="-4" font-family="Segoe UI, Arial, sans-serif" fill="#F4FAFF">Cine</text>
+    <text x="335" y="120" font-size="108" font-weight="900" letter-spacing="-4" font-family="Segoe UI, Arial, sans-serif" fill="url(#accent)">Spark</text>
+    <text x="860" y="116" font-size="52" font-weight="800" letter-spacing="5" font-family="Segoe UI, Arial, sans-serif" fill="#8AEAD9">3.0</text>
+
+    <line x1="10" y1="168" x2="810" y2="168" stroke="rgba(61,214,198,0.32)" stroke-width="2.5"/>
+
+    <text x="0" y="236" font-size="26" font-weight="700" letter-spacing="8" font-family="Segoe UI, Arial, sans-serif" fill="#9DB8CA">TECHNICAL STORY CHALLENGE</text>
+    <text x="0" y="286" font-size="22" font-weight="600" letter-spacing="2" font-family="Segoe UI, Arial, sans-serif" fill="#DAEAF7">Create • Decode • Build • Compete</text>
+  </g>
+</svg>

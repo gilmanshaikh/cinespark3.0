@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineSpark 3.0</title>
+    <style>
+      :root {
+        --bg-deep: #05070d;
+        --bg-card: #0d1320;
+        --border: rgba(255,255,255,0.08);
+        --accent: #3dd6c6;
+        --accent-soft: rgba(61,214,198,0.12);
+        --text-primary: #ecf6ff;
+        --text-muted: #a5b4c7;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #05070d 0%, #0b1020 100%);
+        color: var(--text-primary);
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 40px auto;
+        background: rgba(13, 19, 32, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      }
+
+      .header {
+        padding: 42px 54px 28px;
+        border-bottom: 1px solid var(--border);
+        background: radial-gradient(circle at top left, rgba(61,214,198,0.15), transparent 34%), #0a1020;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-bottom: 18px;
+      }
+
+      .logo {
+        width: 94px;
+        height: 94px;
+        border-radius: 28px;
+        background: rgba(61,214,198,0.08);
+        border: 1px solid rgba(61,214,198,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 24px rgba(61,214,198,0.18);
+      }
+
+      .logo-inner {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 6px solid var(--accent);
+        position: relative;
+      }
+
+      .logo-inner:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 20px solid var(--accent);
+        right: -10px;
+        top: 12px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 46px;
+        letter-spacing: -2px;
+        font-weight: 900;
+      }
+
+      h1 .accent { color: var(--accent); }
+
+      .sub {
+        margin-top: 12px;
+        color: var(--text-muted);
+        font-size: 15px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .content {
+        padding: 38px 54px 50px;
+      }
+
+      .intro {
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--text-primary);
+        margin-bottom: 26px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin: 30px 0 14px;
+        color: var(--accent);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      p, li {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text-primary);
+      }
+
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      li { margin-bottom: 8px; }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+        margin-top: 18px;
+      }
+
+      .panel {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .panel strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+
+      @media (max-width: 900px) {
+        .grid { grid-template-columns: 1fr; }
+        .header, .content { padding-left: 22px; padding-right: 22px; }
+        h1 { font-size: 36px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="brand">
+          <div class="logo"><div class="logo-inner"></div></div>
+          <div>
+            <h1>Cine<span class="accent">Spark</span> 3.0</h1>
+            <div class="sub">Technical Story Challenge</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <p class="intro">
+          CineSpark 3.0 is a creative technical competition platform designed to provide students with an engaging alternative to the traditional hackathon. Instead of focusing only on coding, the event blends technology, storytelling, problem-solving, creativity, and collaboration. Students are given topic options and are expected to choose a theme, interpret it creatively, and produce a cinematic short video that reflects both technical understanding and visual storytelling.
+        </p>
+
+        <h2>Event Objective</h2>
+        <p>
+          The objective of the event is to create a platform where students can explore ideas, work as a team, think innovatively, and build a cinematic output using a technical and creative lens. The challenge is designed to be different from a standard coding competition by combining logic, design, communication, and production value into one unified experience.
+        </p>
+
+        <h2>How the Event Works</h2>
+        <div class="grid">
+          <div class="panel">
+            <strong>1. Registration</strong>
+            Teams register with their team name and member details. Once registered, they wait in the event lobby until the admin starts the competition.
+          </div>
+          <div class="panel">
+            <strong>2. Waiting Room</strong>
+            Before the event starts, teams remain in a waiting room so everyone begins the challenge at the same time and under fair conditions.
+          </div>
+          <div class="panel">
+            <strong>3. Admin Launch</strong>
+            The admin controls when the event starts, pauses, resumes, or ends. The admin can also configure the total competition duration.
+          </div>
+          <div class="panel">
+            <strong>4. Technical Challenge</strong>
+            Teams solve technical questions, answer story-based prompts, decode binary clues, and progress through the challenge under a live timer.
+          </div>
+          <div class="panel">
+            <strong>5. Rewards and Penalties</strong>
+            Correct actions earn CineCoins, while wrong answers, skips, hints, or rule violations reduce the team balance. This introduces strategy and time management into the competition.
+          </div>
+          <div class="panel">
+            <strong>6. Leaderboard</strong>
+            The live leaderboard updates team progress, ranking, coin balance, decoded words, and completion status in real time.
+          </div>
+        </div>
+
+        <h2>Core Features</h2>
+        <ul>
+          <li>Team registration and login</li>
+          <li>Admin-controlled launch and event lifecycle</li>
+          <li>Question management and custom event timer</li>
+          <li>Coin-based reward and penalty system</li>
+          <li>Binary clue decoding and story progression</li>
+          <li>Live leaderboard and team status tracking</li>
+          <li>Anti-cheat checks and fair-play controls</li>
+          <li>Modern web-based interface for a polished event experience</li>
+        </ul>
+
+        <h2>Why This Event Is Different</h2>
+        <p>
+          Unlike a traditional hackathon, CineSpark 3.0 focuses on narrative, creativity, idea selection, and cinematic execution. Students are not only solving technical questions, but also building a meaningful story visually and conceptually. This makes the event highly engaging, innovation-focused, and more inclusive for students with both technical and creative strengths.
+        </p>
+
+        <h2>Technology Stack</h2>
+        <ul>
+          <li>Frontend: React with Vite</li>
+          <li>Backend: Node.js and Express</li>
+          <li>Database: MongoDB Atlas</li>
+          <li>Authentication: JWT-based secure login</li>
+          <li>Deployment: Cloud-ready architecture for AWS or similar environment</li>
+        </ul>
+
+        <h2>Impact</h2>
+        <p>
+          The platform provides an immersive, modern, and competitive event experience. It allows institutions to host a memorable technical storytelling challenge that is interactive, scalable, and easy to manage. It encourages teamwork, creativity, and technical thinking while maintaining a strong competitive structure.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
