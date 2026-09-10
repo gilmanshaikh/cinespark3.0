@@ -10,7 +10,7 @@ services:
       - .env
     environment:
       PORT: 5000
-      CLIENT_URL: ${CLIENT_URL:-http://localhost}
+      CLIENT_URL: ${CLIENT_URL:-http://13.48.59.24}
       MONGODB_URI: ${MONGODB_URI}
     ports:
       - "5000:5000"
@@ -27,7 +27,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
       args:
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:5000/api}
+        VITE_API_URL: ${VITE_API_URL:-http://13.48.59.24:5000}
     container_name: cinespark-frontend
     ports:
       - "80:80"

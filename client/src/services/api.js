@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://13.48.59.24:5000'
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: `${API_BASE_URL.replace(/\/$/, '')}/api`,
   headers: { 'Content-Type': 'application/json' },
 })
 
@@ -14,7 +16,7 @@ api.interceptors.request.use((config) => {
 
 // Admin API instance — uses separate token
 export const adminApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: `${API_BASE_URL.replace(/\/$/, '')}/api`,
   headers: { 'Content-Type': 'application/json' },
 })
 adminApi.interceptors.request.use((config) => {
